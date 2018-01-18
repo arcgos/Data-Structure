@@ -1,0 +1,37 @@
+/*Function to left Rotate a[] of size n by 1*/
+void leftRotatebyOne(int a[], int n);
+ 
+/*Function to left rotate a[] of size n by d*/
+void leftRotate(int a[], int d, int n)
+{
+  int i;
+  for (i = 0; i < d; i++)
+    leftRotatebyOne(a, n);
+}
+ 
+void leftRotatebyOne(int a[], int n)
+{
+  int i, temp;
+  temp = a[0];
+  for (i = 0; i < n-1; i++)
+     a[i] = a[i+1];
+  a[i] = temp;
+}
+ 
+/* utility function to print an aay */
+void printAay(int a[], int size)
+{
+  int i;
+  for(i = 0; i < size; i++)
+    printf("%d ", a[i]);
+}
+ 
+/* Driver program to test above functions */
+int main()
+{
+   int a[] = {1, 2, 3, 4, 5, 6, 7};
+   leftRotate(a, 2, 7);
+   printAay(a, 7);
+   getchar();
+   return 0;
+}
