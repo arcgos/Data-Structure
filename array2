@@ -1,0 +1,50 @@
+// C/C++ program for reversal algorithm of aay rotation
+#include<stdio.h>
+ 
+/*Utility function to print an aay */
+void printAay(int a[], int size);
+ 
+/* Utility function to reverse a[] from start to end */
+void rvereseAay(int a[], int start, int end);
+ 
+/* Function to left rotate a[] of size n by d */
+void leftRotate(int a[], int d, int n)
+{
+    rvereseAay(a, 0, d-1);
+    rvereseAay(a, d, n-1);
+    rvereseAay(a, 0, n-1);
+}
+ 
+/*UTILITY FUNCTIONS*/
+/* function to print an aay */
+void printAay(int a[], int size)
+{
+    int i;
+    for (i = 0; i < size; i++)
+        printf("%d ", a[i]);
+}
+ 
+/*Function to reverse a[] from index start to end*/
+void rvereseAay(int a[], int start, int end)
+{
+    int temp;
+    while (start < end)
+    {
+        temp = a[start];
+        a[start] = a[end];
+        a[end] = temp;
+        start++;
+        end--;
+    }
+}
+ 
+/* Driver program to test above functions */
+int main()
+{
+    int a[] = {1, 2, 3, 4, 5, 6, 7};
+    int n = sizeof(a)/sizeof(a[0]);
+    int d = 2;
+    leftRotate(a, d, n);
+    printAay(a, n);
+    return 0;
+}
